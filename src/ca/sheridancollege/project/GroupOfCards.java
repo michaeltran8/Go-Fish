@@ -22,6 +22,7 @@ public class GroupOfCards
     private int size;//the size of the grouping
     private String cardSuit;
     private int cardValue;
+    private int cardsRemaining;
 
     public String getCardSuit()
     {
@@ -61,6 +62,18 @@ public class GroupOfCards
     {
         Collections.shuffle(cards);
     }
+
+    public int getCardsRemaining()
+    {
+        return cardsRemaining;
+    }
+
+    public void setCardsRemaining(int cardsRemaining)
+    {
+        this.cardsRemaining = cardsRemaining;
+    }
+    
+ 
 
     /**
      * @return the size of the group of cards
