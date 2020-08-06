@@ -11,15 +11,41 @@ package ca.sheridancollege.project;
  */
 public abstract class Player 
 {
+    public GroupOfCards cardGroup;
+    
+    private int turn;
+    
     private String playerID; //the unique ID for this player
     
     /**
      * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
+     * @param cardGroup
+     * @param playerID
      */
-    public Player(String name)
+    public Player(GroupOfCards cardGroup, String playerID)
     {
-        playerID= name;
+        this.cardGroup = cardGroup;
+        this.playerID = playerID;
+    }
+
+    public GroupOfCards getCardGroup()
+    {
+        return cardGroup;
+    }
+
+    public void setCardGroup(GroupOfCards cardGroup)
+    {
+        this.cardGroup = cardGroup;
+    }
+
+    public int getTurn()
+    {
+        return turn;
+    }
+
+    public void setTurn(int turn)
+    {
+        this.turn = turn;
     }
     
     /**
@@ -38,6 +64,8 @@ public abstract class Player
     {
         playerID = givenID;
     }
+    
+    
     
     /**
      * The method to be instantiated when you subclass the Player class
