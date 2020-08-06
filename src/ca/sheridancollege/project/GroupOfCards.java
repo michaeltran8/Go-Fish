@@ -20,6 +20,28 @@ public class GroupOfCards
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
+    private String cardSuit;
+    private int cardValue;
+
+    public String getCardSuit()
+    {
+        return cardSuit;
+    }
+
+    public void setCardSuit(String suit)
+    {
+        this.cardSuit = cardSuit;
+    }
+
+    public int getCardValue()
+    {
+        return cardValue;
+    }
+
+    public void setValue(int cardValue)
+    {
+        this.cardValue = cardValue;
+    }
     
     public GroupOfCards(int givenSize)
     {
@@ -52,6 +74,10 @@ public class GroupOfCards
      */
     public void setSize(int givenSize) {
         size = givenSize;
+    }
+    public String toString()
+    {
+        return null;
     }
     
 }//end class
