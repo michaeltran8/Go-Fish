@@ -72,21 +72,30 @@ public class Game
         for (int i = 0; i < numOfPlayers; i++)
         {
             int asking;
+            int card;
             System.out.println("Player " + (i + 1) + "'s Turn");
             System.out.println(playerHands.get(i).toString());
 
             System.out.println("Which player do you want to ask");
             asking = sc.nextInt();
+            System.out.println("Which card do you want to for");
+            card = sc.nextInt();
+            
+            
+            
             switch (asking)
             {
                 case 1:
-                    
+                    playerHands.get(0).contains(playerHands.get(0).get(card - 1).getValue());
                     break;
                 case 2:
+                    playerHands.get(1).contains(playerHands.get(0).get(card - 1).getValue());
                     break;
                 case 3:
+                    playerHands.get(2).contains(playerHands.get(0).get(card - 1).getValue());
                     break;
                 case 4:
+                    playerHands.get(3).contains(playerHands.get(0).get(card - 1).getValue());
                     break;
             }
 

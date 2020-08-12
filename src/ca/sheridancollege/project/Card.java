@@ -51,7 +51,7 @@ public class Card
     @Override
     public String toString()
     {
-        return String.format(suits + " " + values);
+        return String.format(values + " " +suits);
     }
 
 }
