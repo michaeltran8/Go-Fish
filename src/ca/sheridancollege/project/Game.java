@@ -37,12 +37,14 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
 
-        ArrayList<ArrayList<Card>> playerHands = new ArrayList<ArrayList<Card>>(numOfPlayers);
+        ArrayList<ArrayList<String>> playerHands = new ArrayList<>(numOfPlayers);
 
-        ArrayList<Card> p1 = new ArrayList<Card>();
-        ArrayList<Card> p2 = new ArrayList<Card>();
-        ArrayList<Card> p3 = new ArrayList<Card>();
-        ArrayList<Card> p4 = new ArrayList<Card>();
+        int[] playerPoints = new int[4];
+
+        ArrayList<String> p1 = new ArrayList<>();
+        ArrayList<String> p2 = new ArrayList<>();
+        ArrayList<String> p3 = new ArrayList<>();
+        ArrayList<String> p4 = new ArrayList<>();
 
         Deck deck = new Deck();
 
@@ -69,49 +71,84 @@ public class Game
                 break;
         }
 
+        turn(playerHands, sc, playerPoints);
+        
+
+    }
+
+    private void turn(ArrayList<ArrayList<String>> playerHands, Scanner sc, int[] playerPoints)
+    {
         for (int i = 0; i < numOfPlayers; i++)
         {
             int asking;
             int card;
+            
             System.out.println("Player " + (i + 1) + "'s Turn");
             System.out.println(playerHands.get(i).toString());
-
+            
             System.out.println("Which player do you want to ask");
             asking = sc.nextInt();
+            
             System.out.println("Which card do you want to for");
             card = sc.nextInt();
-            
-            
+
+            String cardHave = String.format("%c%c", 
+                    playerHands.get(i).get(card - 1).charAt(0), 
+                    playerHands.get(i).get(card - 1).charAt(1));
+
+            for (String str : playerHands.get(asking - 1))
+            {
+                String cardAsking = String.format("%c%c", str.charAt(0), str.charAt(1));
+            }
             
             switch (asking)
             {
                 case 1:
-                    playerHands.get(0).contains(playerHands.get(0).get(card - 1).getValue());
+                    for (String str : playerHands.get(0))
+                    {
+                        String cardask = String.format("%c%c", str.charAt(0), str.charAt(1));
+                        if (cardHave.equals(cardask))
+                        {
+                            playerPoints[i] += 1;
+                        }
+                    }
                     break;
+                    
                 case 2:
-                    playerHands.get(1).contains(playerHands.get(0).get(card - 1).getValue());
+                    for (String str : playerHands.get(1))
+                    {
+                        String cardask = String.format("%c%c", str.charAt(0), str.charAt(1));
+                        if (cardHave.equals(cardask))
+                        {
+                            playerPoints[i] += 1;
+                        }
+                    }
+
                     break;
+                    
                 case 3:
-                    playerHands.get(2).contains(playerHands.get(0).get(card - 1).getValue());
+                    for (String str : playerHands.get(2))
+                    {
+                        String cardask = String.format("%c%c", str.charAt(0), str.charAt(1));
+                        if (cardHave.equals(cardask))
+                        {
+                            playerPoints[i] += 1;
+                        }
+                    }
                     break;
+                    
                 case 4:
-                    playerHands.get(3).contains(playerHands.get(0).get(card - 1).getValue());
+                    for (String str : playerHands.get(3))
+                    {
+                        String cardask = String.format("%c%c", str.charAt(0), str.charAt(1));
+                        if (cardHave.equals(cardask))
+                        {
+                            playerPoints[i] += 1;
+                        }
+                    }
                     break;
             }
 
-        }
-
-    }
-
-    private void turn(ArrayList players)
-    {
-        for (int i = 0; i < numOfPlayers; i++)
-        {
-            for (int j = 0; j < players.size(); j++)
-            {
-                System.out.print(players.get(j) + " ");
-            }
-            System.out.println();
         }
     }
 
@@ -119,7 +156,7 @@ public class Game
     {
         for (int j = 0; j < 5; j++)
         {
-            hand.add(deck.cards.get(0));
+            hand.add(deck.cards.get(0).toString());
             deck.removeCard(0);
         }
 
